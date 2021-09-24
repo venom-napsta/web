@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>Get Current Date Using Javascript</title>
+    <script>
+        function getCurrentDate(){
+            var curDate = new Date();
+            // var curDate = new Date().getTime()
+            document.getElementById("showDate").innerHTML = curDate.toString();
+        }
+    </script>
+</head>
+<body onload="getCurrentDate()" style="text-align: center;">
+    <h1>Get Current Date Using Javascript</h1>
+    <h2 id="showDate"></h2>
+</body>
+
+</html>

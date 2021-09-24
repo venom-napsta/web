@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>Get Current Time Using Javascript</title>
+    <script>
+        function startTime(){
+            var today = new Date()
+            var h = today.getHours()
+            var m = today.getMinutes()
+            var s = today.getSeconds()
+
+            //Add a zero to the numbers less than 10
+
+            h = checkTime(h);
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('text').innerHTML = h + ":" + m + ":" + s;
+            t = setTimeout('startTime()', 500)
+        }
+
+        function checkTime(i){
+            if (i < 10){
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+</head>
+<body onload="startTime()" style="text-align: center;">
+    <h1>Get Current Time Using Javascript</h1>
+    <h2 id="text"></h2>
+</body>
+
+</html>

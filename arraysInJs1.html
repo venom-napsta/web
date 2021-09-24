@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in Javascript</title>
+    <script>
+        let fruits = [];
+        fruits[0]="Banana"
+        fruits[1]="Apple"
+        fruits[2]="Mango"
+    </script>
+    <script>
+        for (let index = 0; index < fruits.length; index++) {
+            const element = fruits[index];
+            document.write(element);
+            document.write("<br >");
+            
+        }
+        // document.getElementById("fruits").innerHTML = fruits;
+    </script>
+</head>
+<body>
+    <p id="fruits" on></p>
+</body>
+</html>
