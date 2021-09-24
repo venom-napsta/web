@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rad</title>
+    <script>
+        const checkGender = () =>{
+            if(document.getElementById('radMale').checked){
+                alert("Male")
+            }else{
+                alert("Female")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Select Gender</h1>
+    <b>Choose Gender</b>
+    <input type="radio" name="gender" id="radMale">Male</input><br>
+    <input type="radio" name="gender" id="radFemale">Female</input><br>
+    <input type="button" value="Check Gender" onclick="checkGender()"/>
+
+</body>
+</html>
