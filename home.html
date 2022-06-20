@@ -1,0 +1,882 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background-color: #e1e1f1;
+    }
+
+    .download {
+      margin-bottom: 8px !important;
+      background-color: rgb(0, 100, 120);
+      cursor: pointer;
+      font-weight: bold;
+      height: 36px;
+      color: #d5f2f2;
+      width: 60%;
+      vertical-align: middle;
+      border-radius: 20px;
+    }
+
+    .dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgb(0, 100, 120) !important;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgb(3, 158, 189) !important;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #e1e1f1;
+    }
+
+    .row:after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    [class*="col-"] {
+      float: left;
+      padding: 15px;
+    }
+
+    .header {
+      background-color: rgb(0, 100, 120) !important;
+      color: #d5f2f2;
+      padding: 15px;
+    }
+
+    hr {
+      position: relative;
+      width: 80%;
+    }
+
+    .block-btn,
+    .block-btn:link,
+    .block-btn:visited {
+      color: black;
+      background-color: none;
+      border-radius: 1px 3px 1px 3px;
+    }
+
+    .left_side_bar_btn {
+      margin-bottom: 8px !important;
+      width: 80%;
+      vertical-align: middle;
+      border-radius: 1px 3px 1px 3px;
+    }
+
+    .right-block-btn {
+      width: 90%;
+      outline: 0;
+      margin: 0px 3px;
+      padding: 4px 8px;
+      vertical-align: middle;
+      text-decoration: none;
+      color: inherit;
+      text-align: none;
+      cursor: pointer;
+    }
+
+    .block-btn,
+    .margin_btn {
+      border: none;
+      display: inline-block;
+      outline: 0;
+      margin: 0px 2px;
+      padding: 2.5px 6px;
+      vertical-align: middle;
+      text-decoration: none;
+      color: inherit;
+      background-color: inherit;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 6px 9px 6px 9px;
+    }
+
+    .heading_btn,
+    .heading_bar_btn {
+      float: left;
+      width: 15%;
+      font: 20px/2 "Agency FB", vedarna;
+      height: 100%;
+      border: none;
+      display: inline-block;
+      outline: 0;
+      padding: 10px 16px;
+      vertical-align: middle;
+      overflow: hidden;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .input {
+      border-radius: 4px;
+      margin: 0px 4px 3px 3px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .input:active,
+    .input:hover,
+    .input:focus {
+      border-color: rgb(0, 100, 120);
+      background-color: rgba(226, 226, 226, 1);
+    }
+
+    .row>.left {
+      list-style: none;
+      font: 20px/1.5 "Agency FB", vedarna;
+      font-weight: bold;
+      border-radius: 6px 1px 6px 9px;
+      display: inline-block;
+      outline: 0;
+      padding: none;
+      vertical-align: middle;
+      overflow: hidden;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      background-image: linear-gradient(90deg, rgb(0, 100, 120), #e1e1f1);
+    }
+
+
+    h2 {
+      text-align: center;
+      font-family: "Agency FB", vedarna;
+      font-weight: bold;
+    }
+
+    /*
+.popular:hover, .popular:active, .popular:focus{
+	background-color: rgb(0,100,120) !important;
+}*/
+
+    .menu {
+      color: black;
+      font-family: "Agency FB", vedarna;
+      position: fixed;
+      top: 0;
+      height: 50px;
+      width: 100%;
+      list-style: none;
+      background-color: rgb(0, 100, 120) !important;
+      transition: background-color .3s, height .3s;
+      margin-bottom: 5px;
+      z-index: 100;
+    }
+
+    /*
+.menu .top .fixed{
+
+	border-radius:6px 5px 6px 1px;
+	font-family:"Agency FB",vedarna;
+	font-weight:bold;
+	list-style-type:none;
+    outline: 0;
+    position: fixed;
+    margin-top:0;
+    padding: none;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+	background-image:linear-gradient(90deg,rgb(7,154,183),white);
+}*/
+
+    .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .label a:hover {
+      background-color: none;
+    }
+
+    .footer a:hover {
+      background-color: inherit;
+      color: black;
+    }
+
+    .right_link a {
+      color: black;
+    }
+
+    .links a {
+      box-shadow: none;
+      /* 0 0px 3.5px rgba(0,0,0,0.12), 0 0px 4px rgba(0,0,0,0.24);*/
+    }
+
+    .download:hover,
+    a:hover,
+    a:active,
+    a:focus {
+
+      border-bottom-color: black;
+      border-bottom-width: 3.5px;
+      border-bottom-style: solid;
+    }
+
+    /*add :focus=== For example, when your cursor is in a form input ready to accept typing, that element is said to have focus. /:active===when bieng pressed
+
+p.two { -moz-border-image: url("images/dots.gif")   11 11 11 11 round;  -webkit-border-image: url("images/dots.gif")   11 11 11 11 round;  border-image: url("images/dots.gif")   11 11 11 11 round;
+*/
+    .menu li {
+      padding: 8px;
+      margin-bottom: 7px;
+      background-color: #c0c0c0;
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      border-radius: 6px 5px 6px 1px;
+    }
+
+    .menu li:hover {
+      background-color: teal;
+    }
+
+    img {
+      width: 90%;
+      height:
+    }
+
+    li {
+      display: list-item;
+      text-align: -webkit-match-parent;
+
+    }
+
+    /*
+.left{
+	background-image:linear-gradient(90deg,rgb(7,154,183),white);
+	font-weight:bold;
+	list-style-type:none;
+	font-family: "Agency FB",vedarna;
+	border-radius:6px 5px 6px 1px;
+    display: inline-block;
+    outline: 0;
+    text-decoration: none;
+    background-color:#0099cc;  
+    padding: 10px 20px;  
+    color: black;
+    text-align: center;  
+    font-size: 14px;
+}*/
+    .aside {
+      font-weight: bold;
+      list-style-type: none;
+      font-family: "Agency FB", vedarna;
+      border-radius: 6px 5px 6px 1px;
+      display: inline-block;
+      outline: 0;
+      text-decoration: none;
+      background-color: inherit;
+      padding: 10px 20px;
+      color: black;
+      text-align: center;
+    }
+
+    .footer {
+      margin: -8px;
+      clear: both;
+      clear: left;
+      background-color: rgb(0, 100, 120) !important;
+      color: #ffffff;
+      text-align: center;
+      font-size: 12px;
+      padding: 15px;
+    }
+
+    .footer a {
+      color: #ffffff;
+      padding: 5px;
+      list-style: none;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .text {
+      color: #d5f2f2;
+      text-decoration: none;
+      padding: 4px 8px;
+      border: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    span p {
+      font-family: "helvetica neue", helvetica, serif;
+      color: black;
+    }
+
+    article p:first-letter {
+      text-decoration: bold;
+    }
+
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 600px) {
+
+      /* For tablets: */
+      .col-m-1 {
+        width: 8.33%;
+      }
+
+      .col-m-2 {
+        width: 16.66%;
+      }
+
+      .col-m-3 {
+        width: 25%;
+      }
+
+      .col-m-4 {
+        width: 33.33%;
+      }
+
+      .col-m-5 {
+        width: 41.66%;
+      }
+
+      .col-m-6 {
+        width: 50%;
+      }
+
+      .col-m-7 {
+        width: 58.33%;
+      }
+
+      .col-m-8 {
+        width: 66.66%;
+      }
+
+      .col-m-9 {
+        width: 75%;
+      }
+
+      .col-m-10 {
+        width: 83.33%;
+      }
+
+      .col-m-11 {
+        width: 91.66%;
+      }
+
+      .col-m-12 {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+
+      /* For desktop: */
+      .col-1 {
+        width: 8.33%;
+      }
+
+      .col-2 {
+        width: 16.66%;
+      }
+
+      .col-3 {
+        width: 15%;
+      }
+
+      .col-x {
+        width: 30%;
+      }
+
+      .col-4 {
+        width: 33.33%;
+      }
+
+      .col-5 {
+        width: 41.66%;
+      }
+
+      .col-6 {
+        width: 55%;
+      }
+
+      .col-7 {
+        width: 58.33%;
+      }
+
+      .col-8 {
+        width: 66.66%;
+      }
+
+      .col-9 {
+        width: 75%;
+      }
+
+      .col-10 {
+        width: 83.33%;
+      }
+
+      .col-11 {
+        width: 91.66%;
+      }
+
+      .col-12 {
+        width: 100%;
+      }
+    }
+
+    .col-6,
+    .col-m-9 p {
+      font: 20px/1.5 "helvetica neue", helvetica, serif;
+      color: black;
+    }
+
+    .menu .top .fixed {
+      color: black;
+      font-family: "Agency FB", vedarna;
+      position: fixed;
+      top: 0;
+      height: 45px;
+      width: 100%;
+      font-size: 25px;
+      transition: background-color .3s, height .3s;
+      margin-bottom: 5px;
+    }
+
+    .arrow_nav {
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--
+	<div class="menu top fixed" style="width: 100%">
+				<a class=" margin-bottom" href="index.html" style="margin-left: 65px;color: white; text-decoration: none; float:left;width:10px; position:relative;"><h5>GeeK WeB</h5></a>
+		<div class="links" style="margin-left: 115px;margin-right: 8px">
+			<ol>
+				<a class="text" href="#" target="_blank">HOME</a> |
+				<div class="dropdown">
+					<a class="text" href="#" target="_blank">PROGRAMMING</a> |
+  						<div class="dropdown-content">
+    						<a href="#">C++</a>
+    						<a href="#">Java</a>
+    						<a href="#">Python</a>
+    						<a href="#">Visual Basic</a>
+    						<a href="#">HTML</a>
+    						<a href="#">CSS</a>
+ 						</div>
+				</div>
+
+				<div class="dropdown">
+					<a class="text" href="#" target="_blank">MOBILE</a> |
+  						<div class="dropdown-content">
+    						<a href="#">TELECEL</a>
+    						<a href="#">ECONET</a>
+    						<a href="#">NET-ONE</a>
+    						<a href="#">POWERTEL</a>
+ 						</div>
+				</div>
+
+
+				<div class="dropdown">
+					<a class="text" href="#" target="_blank">TUTORIALS</a> |
+  						<div class="dropdown-content">
+    						<a href="#">PROGRAMMING</a>
+    						<a href="#">BASICS</a>
+    						<a href="#">UBUNTU</a>
+ 						</div>
+				</div>
+
+
+				<div class="dropdown">
+					<a class="text" href="#" target="_blank">TRENDING</a> |
+  						<div class="dropdown-content">
+    						<a href="#">OVERALL</a>
+    						<a href="#">VIDEOS</a>
+    						<a href="#">HOW TOs</a>
+ 						</div>
+				</div>
+
+				<a class="text" href="#" target="_blank">DOWNLOADS</a> |
+				<a class="text" href="#" target="_blank">FORUM</a> |
+				<a class="text" href="#" target="_blank">CONTRIBUTE</a></b>
+
+				
+				<div class="dropdown">
+					<a href="#" class="text" onclick="#" style="margin-left:75px;width:160px;font-height:90%;font-weight: bold;">ASK A QUESTION NOW</a>
+  						<div class="dropdown-content" style="background-color:#e2e2e2; padding: 4px">
+  							<form action='Comment' style="margin-top: 8px; ">
+  								<input type='text' class="input" name='name' placeholder="Your Name" style="margin:0 10px 0 10px;width: 160px;height: 30px"/>
+  								<input type='email' class="input" name='email' placeholder="Email" style="margin-left: 5px;width: 160px;height: 30px"/></br >
+				<br/><textarea class="input " rows='3' cols='70' placeholder="Type your Question" style="height: auto;"></textarea>
+				<input type='submit' class="text download" value="Post Question" />
+			</form>
+ 						</div>
+				</div>
+				<input class="input" type="search" href="#" onclick="wiz()" placeholder="wanna search" style="margin-left:130px;width:150px;max-height:20px ;border: 1px solid #e2e2e2;background-color:#ffffff;padding: 5px;border-radius: 40px 10px 10px 40px"/>
+				<input type="button" href="#" onclick="wiz()" value="Search" style="color:white;background-color:black;border-radius: 5px 40px 40px 5px" />
+			</ol>
+		</div>
+	</div>-->
+
+
+  <div class="header" align="middle" style="padding-right: 10%;">
+    <table style="width:100%;margin-bottom:2px;margin-left:80px;margin-top:30px">
+      <tbody>
+        <tr>
+          <td>
+            <div style="clear:both;float:left;width:60px;margin-top:2px;">
+              <a href="index.html">
+                <img src="./images/V.png" alt="Geek Web Logo" style="width: 120px;height: 120px">
+              </a>
+            </div>
+            <div id="heading" style="margin-left:15%;margin-bottom:5px" align="left">
+              <div id="heading" align="left" style="margin-left:5%">
+                <p style="font-family:'Agency FB',helvetica,serif;color: inherit;font-size: 15px;vertical-align:center;margin-top:15px">
+                  <b><strong><em>Geek Web</b>
+                  </strong> is an online forum for local Business and Technological related content <b>questions</b> and
+                  <b>solutions</b>.</em>
+                </p>
+              </div><br />
+              <div class="links" id="heading" align="left"
+                style="margin-left:5%;font-family: 'Agency FB',serif,helvetica,sans;font-weight: bold;">
+                <b>
+
+
+                  <a class="text" href="#">HOME</a>
+                  <span class="arrow_nav"> | </span>
+                  <div class="dropdown">
+                    <a class="text" href="#" target="_blank">PROGRAMMING</a>
+                    <span class="arrow_nav"> | </span>
+                    <div class="dropdown-content">
+                      <a href="#">C++</a>
+                      <a href="#">Java</a>
+                      <a href="#">Python</a>
+                      <a href="#">Visual Basic</a>
+                      <a href="#">HTML</a>
+                      <a href="#">CSS</a>
+                    </div>
+                  </div>
+
+                  <div class="dropdown">
+                    <a class="text" href="#" target="_blank">MOBILE</a>
+                    <span class="arrow_nav"> | </span>
+                    <div class="dropdown-content">
+                      <a href="#">TELECEL</a>
+                      <a href="#">ECONET</a>
+                      <a href="#">NET-ONE</a>
+                      <a href="#">POWERTEL</a>
+                    </div>
+                  </div>
+
+
+                  <div class="dropdown">
+                    <a class="text" href="#" target="_blank">TUTORIALS</a>
+                    <span class="arrow_nav"> | </span>
+                    <div class="dropdown-content">
+                      <a href="#">PROGRAMMING</a>
+                      <a href="#">BASICS</a>
+                      <a href="#">UBUNTU</a>
+                    </div>
+                  </div>
+
+
+                  <div class="dropdown">
+                    <a class="text" href="#" target="_blank">TRENDING</a>
+                    <span class="arrow_nav"> | </span>
+                    <div class="dropdown-content">
+                      <a href="#">OVERALL</a>
+                      <a href="#">VIDEOS</a>
+                      <a href="#">HOW TOs</a>
+                    </div>
+                  </div>
+
+                  <a class="text" href="#" target="_blank">DOWNLOADS</a>
+                  <span class="arrow_nav"> | </span>
+                  <a class="text" href="#" target="_blank">6th SENSE</a>
+                  <span class="arrow_nav"> | </span>
+                  <a class="text" href="#" target="_blank">CONTRIBUTE</a>
+                </b>
+
+
+                <!--
+			<a class="block-btn margin-bottom" href="#" target="_blank">PROGRAMMING</a> |
+			<a class="block-btn margin-bottom" href="#" target="_blank">FORUM</a> |
+			<a class="block-btn margin-bottom" href="#" target="_blank">QUESTIONS</a> |
+			<a class="block-btn margin-bottom" href="#" target="_blank">TRENDING</a> |
+			<a class="block-btn margin-bottom" href="#" target="_blank">TOPICS</a> |
+			<a class="block-btn margin-bottom" href="#" target="_blank">FAQs</a> |
+			<a class="block-btn margin-bottom" href="#" target="_blank">CONTACT</a> |
+			<a class="block-btn margin-bottom" href="#" target="_blank">ABOUT</a>
+		--><b>
+                </b></b>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="motto-banner" align="center" style="margin:5px 0 0 0"><br />
+    <span>
+      <marquee><b><i>Dream IT, Go for IT, Live IT</i></b></marquee>
+    </span>
+  </div>
+
+
+
+
+
+
+  <div class="row" style="padding: 15px">
+    <!--<div class="col-3 col-m-3 left links">  
+<li><a class="left_side_bar_btn margin_btn links" href="#" target="_blank">HOME</a></li>
+	<!--<div class="readiness-state Ready_to_Use" style="
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    border-radius: 0 25px 25px 0;
+    box-sizing: border-box;
+    left: -981px;
+    margin: 10% 0 10% 0;
+    padding: 0 45px 0 20px;
+    position: fixed;
+    top: 987px;
+    transform: rotate(-90deg);
+    width: 2000px;background: #7BC649;"><p>This page is <a>Ready to Use</a></p></div>
+
+-->
+    <!--
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">TRENDING</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">TOPICS</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">FORUM</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">ASK A QUESTION</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">PROGRAMMING</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">CAREERS</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">LOCAL NEWS</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">HOW TOs</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">INSTAGRAM</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">FACEBOOK</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">REPORT ERROR</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">HELP/FAQs</a></li>
+		<li><a class="left_side_bar_btn margin_btn" href="#" target="_blank">ABOUT</a></li>-->
+  </div>
+  <hr />
+
+  <div class="col-6 col-m-9 " style="margin-left: 10%;padding: 15px">
+    <article>
+      <div class="footer"><a href="#">Home</a><span class="arrow_nav"> → </span> <a href="#">Development &amp;
+          Insights</a><span class="arrow_nav"> → </span><a href="#">Software</a></div>
+      <section>
+        <h1>HOW TO MAKE IT AS A COMPETITIVE SECURITY SOFTWARE ARCHITECT IN ZIMBABWE</h1>
+        <p>So you are in Zimbabwe and probably wondering, really without enough resources what are the basics of
+          becoming the best Security<a href="#"> Software</a> Developer(SSD).
+          Though its not a walk in the park, being an SSD takes great courage and intrinsic motivation but a basic PC
+          for those without all the resources might be a starting point and the following are a must:</p>
+        <ul>
+          <li>
+            <p>Knowledge in hypervisors or virtual machines operations such as Virtual Box, VMware. Thus also you need
+              to be well versed with the operations of Windows and Kali-Linux OSes.</p>
+          </li>
+          <li>
+            <p>Knowlegde of these Web related scripting and Database languages, ie. HTML5, CSS, JavaScript, AJAX,SQL,
+              MySQL, PHP, XML.</p>
+          </li>
+          <li>
+            <p>Concrete knowledge on the following Networking Protocols, TCP/IP. Also the knowledge of IP Security
+              Domains.
+          </li>
+          <li>
+            <p>Obviously the following Programming Languages such as, Java, C#, C, C++, ASM and Perl.
+          </li>
+        </ul>
+        <p>So go ahead, dream IT, go for IT, live IT. </p>
+        <p> <br /><i><small>Written by <a href="http://geekweb/5758/qxd/bio">Anesu Ruzvidzo</a>, A young and innovative
+              IT enthusiast with greater hopes for the IT industry in Zimbabwe.</small></i></p><br />
+        </ul>
+        <aside>
+          <table>
+            <p><i><b>Leave a Comment</i></b></p>
+            <div id="left_side_bar_btn">
+              <form action='Comment'><small><i>Your Name:</i></small><input type='text' class="input" name='name'
+                  placeholder="Enter your Name" style="margin:0 10px 0 10px;width: 180px;height: 30px" /><small>
+                  <i>Your Email:</i></small><input type='email' class="input" name='email'
+                  placeholder="someone@example.com" style="margin-left: 15px;width: 180px;height: 30px" /></br>
+                <br /><textarea class="input" rows='3' cols='70' placeholder="Enter Comment"></textarea>
+                <input type='submit' class="download" value="Post Comment" />
+              </form>
+              <hr />
+
+              <a href="#"><img target="_blank" src="./images/facebook.png" alt="Facebook"
+                  style="width: 40px;height: 40px"></a>
+              <a href="#"><img target="_blank" src="./images/twitter.png" alt="twitter"
+                  style="width: 40px;height: 40px"></a>
+              <a href="#"><img target="_blank" src="./images/youtube.png" alt="youtube"
+                  style="width: 40px;height: 40px"></a>
+              <a href="#"><img target="_blank" src="./images/linkedin.png" alt="LinkedIn"
+                  style="width: 40px;height: 40px"></a>
+            </div>
+            <!--			<tr style="align:middle;">
+					<td style="box-shadow: none;text-decoration: none">
+					<label for="share-article" class="label" style="margin: 0 20px 0 5px;text-decoration: none">Share this Article on:</label>
+					
+                        <a href="#"><img target="_blank" src="E:\egA weN\Web Learning\Geek Web\Weblog\images\facebook.png" alt="Facebook" style="width: 32px;height: 32px"></a>
+                        <a href="#"><img target="_blank" src="E:\egA weN\Web Learning\Geek Web\Weblog\images\twitter.png" alt="twitter" style="width: 32px;height: 32px"></a>
+                        <a href="#"><img target="_blank" src="E:\egA weN\Web Learning\Geek Web\Weblog\images\youtube.png" alt="youtube" style="width: 32px;height: 32px"></a>
+                        <a href="#"><img target="_blank" src="E:\egA weN\Web Learning\Geek Web\Weblog\images\linkedin.png" alt="LinkedIn" style="width: 32px;height: 32px"></a>
+					</td>
+-->
+            <!--<td>
+						<select name="share-on" id="social-network" style="width:160px;margin:0;border-radius:4px 8px 4px 8px;background-color: rgb(90, 187, 208);">
+							<option value="FACEBOOK">FACEBOOK</option>
+							<option value="TWITTER">TWITTER</option>
+							<option value="GOOGLE+">GOOGLE+</option>
+							<option value="INSTAGRAM">INSTAGRAM</option>
+							<option value="LINKEDiN">LINKEDiN</option>
+						</select>
+					</td>
+				</tr>
+			<!--<tr>
+				<td colspan="2">
+					<div align="right">
+						<input type="submit" id="share-on" value="Share"/>
+					</div>
+				</td>
+			</tr>-->
+          </table>
+          <hr />
+          <form action="#">
+            <table>
+              <tr>
+                <td class="tdLabel"><label for="ratings" class="label">Rate this Article:</label></td>
+                <td>
+                  <input type="radio" name="ratings" id="rate_poor" value="Poor" />
+                  <label for="rate_poor">Poor</label>
+                  <input type="radio" name="ratings" id="rate_average" value="average" />
+                  <label for="rate_average">Average</label>
+                  <input type="radio" name="ratings" id="rate_good" value="good" />
+                  <label for="rate_good">Good</label>
+
+                  <input type="submit" class="rate_btn" value="Go!" onclick=wiz()"
+                    style="margin-left: 30px;background-color: rgb(0, 100, 120) !important;border-color: black !important;border-radius: 45px;color: #c0c0c0;box-sizing: 5px;cursor: pointer;width: 40px;height: 40px" />
+                </td>
+              </tr>
+              </tr>
+            </table>
+          </form>
+          <hr />
+        </aside>
+        <footer id="related">
+          <h2><u>Related pages</u></h2>
+          <ul>
+            <li><strong>Next Page: </strong><a href="#">How to set-up internet Settings on Econet, Telecel, Net1, and
+                Powertel.</a></li>
+            <li><strong>Previous Page:</strong> <a href="#">Which is faster for internet connectivity <b>Econet vs Zol
+                  vs Liquid Telecoms vs Tel-One</b>?</a></li>
+          </ul>
+        </footer>
+    </article>
+  </div>
+
+
+  <div class="col-x col-m-12 right_link" style="padding: 0;">
+    <div class="aside" style="box-shadow:0;">
+
+      <h2><u>MOST VISITED POSTS </u></h2>
+      <ul class="popular">
+        <a class="right-block-btn margin-bottom" href="#" target="_blank">
+          <img src="./images/responsive-illustrations.png" alt="How to set-up internet"
+            style="width: 70%;height: 160px">
+          <br />How to set-up internet Settings on Econet, Telecel, Net1, and Powertel.</a><br />
+        <hr />
+        <a class="right-block-btn margin-bottom" href="#" target="_blank">
+          <img src="./images/kali-VS-wubi.png" alt="GeekS" style="width: 70%;height: 160px"><br />Top 10 utilities every
+          computer geek/nerd must<br /> have on Windows, Kali-Linux or Ubuntu.</a>
+        <hr />
+        <a class="right-block-btn margin-bottom" href="#" target="_blank">
+          <img src="./images/LINUX.jpg" alt="LINUX" style="width: 70%;height: 160px"><br />How to install Ubuntu
+          grub-loader Safely.</a>
+        <hr />
+        <a class="right-block-btn margin-bottom" href="#" target="_blank">
+          <img src="./images/comp-devices.jpg" alt="VS" style="width: 70%;height: 160px"><br />Which is faster for
+          internet connectivity <b>Econet</b> vs<br /> <b>Zol</b> vs <b>Liquid Telecoms</b> vs <b>Tel-One</b></a>
+        <br />
+        <hr />
+
+        <h3>Download the Pacesetter</h3>
+        <img width="230" height="350" src="./images/general/pacesetter.jpg" title="ads" align="center"><br />
+        <input class="download" type="submit" value="Download">
+      </ul>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="footer" style="box-shadow: 0;">
+    <ul>
+      <a href="#">Contribute</a> |
+      <a href="#">Register for Mailings</a> |
+      <a href="#">Report a Problem</a> |
+      <a href="#">Contact Us</a>
+    </ul>
+    <div class="right_side_bar2">
+      <ol>
+        <p><u>Please feel free to Contact Us</u></p>
+        <small><i>Phone : </small></i> +263 779 605 350<br />
+        <a href="mailto:napstakid@gmail.com"><i><small>Email : </small></i> napstakid@gmail.com</a>
+      </ol>
+    </div>
+    <div class="hr" align="center">
+      <p>
+        <em class="block">&copy Project Azus and Geek Web Inc. 2018 </em>
+      </p>
+
+
+    </div>
+
+</body>
+
+</html>
